@@ -41,7 +41,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode==1){
             if (resultCode== RESULT_OK){
+                //Obtenemos el Bitmap:
                 Bitmap bm = (Bitmap) data.getExtras().get("data");
+                //Ejecutamos la tarea asíncrona con el fin de mandar el snap:
+                AsyncPut asp = new AsyncPut();
+                asp.execute(bm);
             }
         }
     }
